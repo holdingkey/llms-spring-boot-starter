@@ -1,5 +1,6 @@
 package com.holdingkey.llms.platform.openai.chat;
 
+import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.json.JSONUtil;
 import com.holdingkey.llms.basic.mode.chat.IChat;
 import com.holdingkey.llms.platform.openai.OpenAIPlatform;
@@ -21,6 +22,9 @@ public class OpenAIChat implements IChat<OpenAIPlatform, ChatReq, ChatResp> {
 
     @Override
     public OpenAIChat req(ChatReq chatReq) {
+        if (CharSequenceUtil.isBlank(chatReq.getModel())) {
+            chatReq.setModel(this.platform.getProperties().getOpenai().getModel());
+        }
         this.chatReq = chatReq;
         return this;
     }
