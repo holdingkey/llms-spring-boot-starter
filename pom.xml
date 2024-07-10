@@ -15,9 +15,10 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <hutool-all.version>5.8.22</hutool-all.version>
-        <lombok.version>1.18.24</lombok.version>
+        <lombok.version>1.18.26</lombok.version>
         <spring-boot.version>2.7.15</spring-boot.version>
         <fastjson.version>1.2.83</fastjson.version>
+        <dashscope-sdk-java.version>2.15.0</dashscope-sdk-java.version>
     </properties>
 
     <dependencies>
@@ -51,18 +52,18 @@
             <version>${hutool-all.version}</version>
         </dependency>
 
-        <!-- okhttp -->
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>3.6.0</version>
-        </dependency>
-
         <!-- fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/dashscope-sdk-java -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dashscope-sdk-java</artifactId>
+            <version>${dashscope-sdk-java.version}</version>
         </dependency>
     </dependencies>
 

@@ -1,4 +1,4 @@
-package com.holdingkey.llms.platform.openai.chat.enums;
+package com.holdingkey.llms.platform.openai.enums;
 
 import java.io.IOException;
 

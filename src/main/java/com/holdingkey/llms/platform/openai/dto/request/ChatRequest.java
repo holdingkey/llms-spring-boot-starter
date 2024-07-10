@@ -1,14 +1,14 @@
-package com.holdingkey.llms.platform.openai.chat.req;
+package com.holdingkey.llms.platform.openai.dto.request;
 
-import com.holdingkey.llms.basic.dto.req.IReq;
-import lombok.Builder;
+import com.holdingkey.llms.basic.dto.request.IRequest;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
 @Data
-@Builder
-public class ChatReq implements IReq {
+@Accessors(chain = true)
+public class ChatRequest implements IRequest {
 
     /**
      * 如果不指定，每次请求会预先冻结 模型支持的最大个数 Token，如果是 3.5 也就是 41P ，在请求完成后按 usage 字段多退少补。如果账户余额少于 41P
@@ -16,7 +16,7 @@ public class ChatReq implements IReq {
      */
     private Long maxTokens;
 
-    private List<MessageReq> messages;
+    private List<MessageRequest> messages;
 
     private String model;
 

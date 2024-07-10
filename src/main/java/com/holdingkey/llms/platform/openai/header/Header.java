@@ -1,4 +1,4 @@
-package com.holdingkey.llms.platform.openai.chat.headers;
+package com.holdingkey.llms.platform.openai.header;
 
 import lombok.Builder;
 import lombok.Data;
