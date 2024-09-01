@@ -14,11 +14,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <hutool-all.version>5.8.22</hutool-all.version>
+        <hutool-all.version>5.8.25</hutool-all.version>
         <lombok.version>1.18.26</lombok.version>
         <spring-boot.version>2.7.15</spring-boot.version>
         <fastjson.version>1.2.83</fastjson.version>
         <dashscope-sdk-java.version>2.15.0</dashscope-sdk-java.version>
+        <baidu-qianfan.version>0.1.1</baidu-qianfan.version>
     </properties>
 
     <dependencies>
@@ -64,6 +65,13 @@
             <groupId>com.alibaba</groupId>
             <artifactId>dashscope-sdk-java</artifactId>
             <version>${dashscope-sdk-java.version}</version>
+        </dependency>
+
+        <!-- baidu-qianfan -->
+        <dependency>
+            <groupId>com.baidubce</groupId>
+            <artifactId>qianfan</artifactId>
+            <version>${baidu-qianfan.version}</version>
         </dependency>
     </dependencies>
 
