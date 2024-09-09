@@ -4,12 +4,14 @@ import java.io.IOException;
 
 public enum Model {
 
-    GPT_35_TURBO, GPT_35_TURBO_0301, GPT_35_TURBO_0613, GPT_35_TURBO_16_K, GPT_35_TURBO_16_K_0613, GPT_4, GPT_40613;
+    GPT_35_TURBO, GPT_35_TURBO_0125, GPT_35_TURBO_0301, GPT_35_TURBO_0613, GPT_35_TURBO_16_K, GPT_35_TURBO_16_K_0613, GPT_4, GPT_40613;
 
     public String toValue() {
         switch (this) {
             case GPT_35_TURBO:
                 return "gpt-3.5-turbo";
+            case GPT_35_TURBO_0125:
+                return "gpt-3.5-turbo-0125";
             case GPT_35_TURBO_0301:
                 return "gpt-3.5-turbo-0301";
             case GPT_35_TURBO_0613:
@@ -28,6 +30,7 @@ public enum Model {
 
     public static Model forValue(String value) throws IOException {
         if (value.equals("gpt-3.5-turbo")) return GPT_35_TURBO;
+        if (value.equals("gpt-3.5-turbo-0125")) return GPT_35_TURBO_0125;
         if (value.equals("gpt-3.5-turbo-0301")) return GPT_35_TURBO_0301;
         if (value.equals("gpt-3.5-turbo-0613")) return GPT_35_TURBO_0613;
         if (value.equals("gpt-3.5-turbo-16k")) return GPT_35_TURBO_16_K;

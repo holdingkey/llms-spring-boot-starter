@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 
@@ -29,7 +30,7 @@ public class LLMsAutoConfiguration {
             openAiChatCompletions.setConfig(openaiConfig);
             platform.setChatCompletions(openAiChatCompletions);
             return platform;
-        }).collect(Collectors.toList());
+        }).filter(Objects::nonNull).collect(Collectors.toList());
     }
 
     @Bean
@@ -42,7 +43,7 @@ public class LLMsAutoConfiguration {
             baiLianChatCompletions.setConfig(baiLianConfig);
             platform.setChatCompletions(baiLianChatCompletions);
             return platform;
-        }).collect(Collectors.toList());
+        }).filter(Objects::nonNull).collect(Collectors.toList());
     }
 
     @Bean

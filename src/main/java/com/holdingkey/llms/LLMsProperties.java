@@ -7,6 +7,7 @@ import lombok.experimental.Accessors;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -14,9 +15,9 @@ import java.util.List;
 @ConfigurationProperties(prefix = "spring.llms")
 public class LLMsProperties {
 
-    private List<OpenAiConfig> openai;
+    private List<OpenAiConfig> openai = new ArrayList<>();
 
-    private List<BaiLianConfig> baiLian;
+    private List<BaiLianConfig> baiLian = new ArrayList<>();
 
     @EqualsAndHashCode(callSuper = true)
     @Data
