@@ -5,6 +5,8 @@ import com.holdingkey.llms.platform.bailian.BaiLianPlatform;
 import com.holdingkey.llms.platform.bailian.mode.BaiLianChatCompletions;
 import com.holdingkey.llms.platform.openai.OpenaiPlatform;
 import com.holdingkey.llms.platform.openai.mode.OpenaiChatCompletions;
+import com.holdingkey.llms.platform.qianfan.QianfanPlatform;
+import com.holdingkey.llms.platform.qianfan.mode.QianfanChatCompletions;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -44,6 +46,19 @@ public class LLMsAutoConfiguration {
             platform.setChatCompletions(baiLianChatCompletions);
             return platform;
         }).filter(Objects::nonNull).collect(Collectors.toList());
+    }
+
+    @Bean
+    public List<QianfanPlatform> qianfanPlatform() {
+        return this.properties.getQianfan().stream().map(qianfanConfig -> {
+            QianfanPlatform platform = new QianfanPlatform();
+            platform.setPlatform(qianfanConfig.getPlatform());
+            // 加载聊天模式
+            QianfanChatCompletions qianfanChatCompletions = new QianfanChatCompletions();
+            qianfanChatCompletions.setConfig(qianfanConfig);
+            platform.setChatCompletions(qianfanChatCompletions);
+            return platform;
+        }).collect(Collectors.toList());
     }
 
     @Bean

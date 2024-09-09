@@ -19,6 +19,8 @@ public class LLMsProperties {
 
     private List<BaiLianConfig> baiLian = new ArrayList<>();
 
+    private List<QianfanConfig> qianfan;
+
     @EqualsAndHashCode(callSuper = true)
     @Data
     @Accessors(chain = true)
@@ -48,6 +50,19 @@ public class LLMsProperties {
         private String appId;
 
         private String apiKey;
+
+    }
+
+    @EqualsAndHashCode(callSuper = true)
+    @Data
+    @Accessors(chain = true)
+    public static class QianfanConfig extends BasicConfig {
+
+        private String accessKey;
+
+        private String secretKey;
+
+        private String model;
 
     }
 

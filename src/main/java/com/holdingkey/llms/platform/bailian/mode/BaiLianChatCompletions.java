@@ -11,11 +11,11 @@ import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Setter
 public class BaiLianChatCompletions implements IChatCompletions {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BaiLianChatCompletions.class);
 
-    @Setter
     private LLMsProperties.BaiLianConfig config;
 
     @Override
