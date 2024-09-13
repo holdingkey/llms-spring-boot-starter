@@ -24,6 +24,9 @@ public class LLMsAutoConfiguration {
 
     @Bean
     public List<OpenaiPlatform> openAiPlatform() {
+        if (this.properties.getOpenai() == null || this.properties.getOpenai().isEmpty()) {
+            return new CopyOnWriteArrayList<>();
+        }
         return this.properties.getOpenai().stream().map(openaiConfig -> {
             OpenaiPlatform platform = new OpenaiPlatform();
             platform.setPlatform(openaiConfig.getPlatform());
@@ -32,11 +35,14 @@ public class LLMsAutoConfiguration {
             openAiChatCompletions.setConfig(openaiConfig);
             platform.setChatCompletions(openAiChatCompletions);
             return platform;
-        }).filter(Objects::nonNull).collect(Collectors.toList());
+        }).collect(Collectors.toList());
     }
 
     @Bean
     public List<BaiLianPlatform> baiLianPlatform() {
+        if (this.properties.getBaiLian() == null || this.properties.getBaiLian().isEmpty()) {
+            return new CopyOnWriteArrayList<>();
+        }
         return this.properties.getBaiLian().stream().map(baiLianConfig -> {
             BaiLianPlatform platform = new BaiLianPlatform();
             platform.setPlatform(baiLianConfig.getPlatform());
@@ -45,11 +51,14 @@ public class LLMsAutoConfiguration {
             baiLianChatCompletions.setConfig(baiLianConfig);
             platform.setChatCompletions(baiLianChatCompletions);
             return platform;
-        }).filter(Objects::nonNull).collect(Collectors.toList());
+        }).collect(Collectors.toList());
     }
 
     @Bean
     public List<QianfanPlatform> qianfanPlatform() {
+        if (this.properties.getQianfan() == null || this.properties.getQianfan().isEmpty()) {
+            return new CopyOnWriteArrayList<>();
+        }
         return this.properties.getQianfan().stream().map(qianfanConfig -> {
             QianfanPlatform platform = new QianfanPlatform();
             platform.setPlatform(qianfanConfig.getPlatform());
